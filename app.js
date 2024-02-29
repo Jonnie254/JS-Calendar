@@ -22,3 +22,21 @@ function generateCalendar() {
     calendar.appendChild(daySquare);
   }
 }
+function showAddTaskModal() {
+  document.getElementById("add-task-modal").style.display = "block";
+}
+function closeAddTaskModal() {
+  document.getElementById("add-task-modal").style.display = "none";
+}
+function deleteTask(taskElement) {
+  if (confirm("Are you sure you want to delete this task?")) {
+    taskElement.parentNode.removeChild(taskElement);
+  }
+}
+function editTask(taskElement) {
+  const newTaskDesc = prompt("Edit your task:", taskElement.textContent);
+  if ((newTaskDesc !== null) & (newTaskDesc.trim() !== "")) {
+    taskElement.textContent = newTaskDesc;
+  }
+}
+function addTask() {
